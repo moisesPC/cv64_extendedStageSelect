@@ -247,10 +247,12 @@ void update_text_color(mfds_state* textbox, u32 color_palette) {
 
 void update_text_string(mfds_state* textbox, const char* ascii_message) {
     void* (*ptr_heap_alloc)(s32, u32) = heap_alloc;
+    void (*ptr_heapBlock_free)(void*) = heapBlock_free;
     void (*ptr_textbox_setMessagePtr)(mfds_state*, u16*, u16*, s16) = textbox_setMessagePtr;
 
     u16* text_buffer_ptr = NULL;
     
+    ptr_heapBlock_free(textbox->text);
     text_buffer_ptr = ASCII2CV64(ascii_message, (u16*) ptr_heap_alloc(HEAP_KIND_MULTIPURPOSE, TEXT_BUFFER_SIZE));
     ptr_textbox_setMessagePtr(textbox, text_buffer_ptr, NULL, 0);
     textbox->flags |= UPDATE_STRING;
