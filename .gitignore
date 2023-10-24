@@ -1,0 +1,29 @@
+# Object files
+*.o
+*.obj
+*.elf
+
+# N64 ROM files
+*.z64
+*.n64
+*.v64
+
+# Binaries
+*.bin
+*.ovl
+
+# Build directory
+build/*
+
+# Visual Studio Code
+.vscode/*
+
+# Executables and tools
+*.exe
+tools/ido71/*
+tools/nOVL/*
+tools/lzkn64
+tools/ZAPD.out
+
+# Don't ignore any ".gitkeep" files
+!.gitkeep
