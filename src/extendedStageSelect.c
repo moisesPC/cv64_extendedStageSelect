@@ -32,7 +32,7 @@ void extendedStageSelect_init(extendedStageSelect* self) {
 
         // Assign position. X pos is always 20, Y pos varies (we add a "+ 20" so that the first string is put in Y pos 20 instead of 0)
         (*textbox_setDimensions)(self->headerNamesTextboxes[i], 1, 500, 0, 0);
-        (*textbox_setScaleAndSomethingElse)(self->headerNamesTextboxes[i], 2, 2, 0.0f, 0.9f, 0.9f, TRUE, TRUE);
+        (*textbox_setScaleAndSomethingElse)(self->headerNamesTextboxes[i], 2, 2, 0.0f, 0.9f, 0.9f, FALSE, TRUE);
 
         update_text_color(self->headerNamesTextboxes[i], TEXT_COLOR_BEIGE);
     }
@@ -61,7 +61,7 @@ void extendedStageSelect_init(extendedStageSelect* self) {
         // Assign position. X pos is always 20, Y pos varies (we add a "+ 30" so that the first string is put in Y pos 30 instead of 0)
         (*textbox_setPos)(self->mapNamesTextboxes[i], 10, (20 * i) + 30, 1);
         (*textbox_setDimensions)(self->mapNamesTextboxes[i], 1, 500, 0, 0);
-        (*textbox_setScaleAndSomethingElse)(self->mapNamesTextboxes[i], 2, 2, 0.0f, 0.9f, 0.9f, TRUE, TRUE);
+        (*textbox_setScaleAndSomethingElse)(self->mapNamesTextboxes[i], 2, 2, 0.0f, 0.9f, 0.9f, FALSE, TRUE);
     }
     update_text_color(self->mapNamesTextboxes[0], TEXT_COLOR_RED);
 
@@ -73,7 +73,7 @@ void extendedStageSelect_init(extendedStageSelect* self) {
 
     (*textbox_setPos)(self->characterNamesTextbox, 90, 200, 1);
     (*textbox_setDimensions)(self->characterNamesTextbox, 1, 500, 0, 0);
-    (*textbox_setScaleAndSomethingElse)(self->characterNamesTextbox, 2, 2, 0.0f, 0.9f, 0.9f, TRUE, TRUE);
+    (*textbox_setScaleAndSomethingElse)(self->characterNamesTextbox, 2, 2, 0.0f, 0.9f, 0.9f, FALSE, TRUE);
 
     // Yes / No textbox
     self->YesNoTextbox = (*textbox_create)(self, common_cameras_array.HUD, 0x08600000);
@@ -83,14 +83,14 @@ void extendedStageSelect_init(extendedStageSelect* self) {
 
     (*textbox_setPos)(self->YesNoTextbox, 260, 200, 1);
     (*textbox_setDimensions)(self->YesNoTextbox, 1, 500, 0, 0);
-    (*textbox_setScaleAndSomethingElse)(self->YesNoTextbox, 2, 2, 0.0f, 0.9f, 0.9f, TRUE, TRUE);
+    (*textbox_setScaleAndSomethingElse)(self->YesNoTextbox, 2, 2, 0.0f, 0.9f, 0.9f, FALSE, TRUE);
 
     // Cutscene
     self->cutsceneTextbox = (*textbox_create)(self, common_cameras_array.HUD, 0x08600000);
     (*textbox_setMessagePtr)(self->cutsceneTextbox, (*heap_alloc)(HEAP_KIND_MULTIPURPOSE, NUMBER_BUFFER_SIZE), NULLPTR, 0);
     (*textbox_setPos)(self->cutsceneTextbox, 90, 220, 1);
     (*textbox_setDimensions)(self->cutsceneTextbox, 1, 500, 0, 0);
-    (*textbox_setScaleAndSomethingElse)(self->cutsceneTextbox, 2, 2, 0.0f, 0.9f, 0.9f, TRUE, TRUE);
+    (*textbox_setScaleAndSomethingElse)(self->cutsceneTextbox, 2, 2, 0.0f, 0.9f, 0.9f, FALSE, TRUE);
     (*textbox_printNumber)(self->cutsceneTextbox, 2, 0);
 
     (*goToNextFunc)(self->header.current_function, &self->header.functionInfo_ID);
@@ -100,7 +100,7 @@ void extendedStageSelect_init(extendedStageSelect* self) {
     (*textbox_setMessagePtr)(self->spawnTextbox, (*heap_alloc)(HEAP_KIND_MULTIPURPOSE, NUMBER_BUFFER_SIZE), NULLPTR, 0);
     (*textbox_setPos)(self->spawnTextbox, 260, 220, 1);
     (*textbox_setDimensions)(self->spawnTextbox, 1, 500, 0, 0);
-    (*textbox_setScaleAndSomethingElse)(self->spawnTextbox, 2, 2, 0.0f, 0.9f, 0.9f, TRUE, TRUE);
+    (*textbox_setScaleAndSomethingElse)(self->spawnTextbox, 2, 2, 0.0f, 0.9f, 0.9f, FALSE, TRUE);
     (*textbox_printNumber)(self->spawnTextbox, 2, 0);
 
     D_80383AB8.background_color.color_u32 = 0x000000FF;
